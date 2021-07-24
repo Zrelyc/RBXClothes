@@ -38,7 +38,7 @@ function ToggleBeautification()
 			local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(v.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 			game.StarterGui:SetCore("SendNotification", {
 				Title = 'Player: '..v.Name,
-				Text = "Transformed!",
+				Text = "Now has no Clothes!",
 				Icon = Image,
 				Duration = 5
 			})
