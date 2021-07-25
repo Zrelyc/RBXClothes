@@ -1,0 +1,162 @@
+local MM2 = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local TextLabel_Roundify_12px = Instance.new("ImageLabel")
+local Script1 = Instance.new("TextButton")
+local Script1_Roundify_12px = Instance.new("ImageLabel")
+local Script2 = Instance.new("TextButton")
+local Script2_Roundify_12px = Instance.new("ImageLabel")
+
+MM2.Name = "MM2"
+MM2.Parent = game.CoreGui
+MM2.Enabled = false
+
+Frame.Name = "Frame"
+Frame.Parent = MM2
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(0.37774983, 0, 0.336283177, 0)
+Frame.Size = UDim2.new(0, 389, 0, 222)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(50, 50, 50)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 10, 0, 10)
+Title.Size = UDim2.new(0, 369, 0, 50)
+Title.ZIndex = 3
+Title.Font = Enum.Font.FredokaOne
+Title.Text = "Murder Mystery 2"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 33.000
+
+TextLabel_Roundify_12px.Name = "TextLabel_Roundify_12px"
+TextLabel_Roundify_12px.Parent = Title
+TextLabel_Roundify_12px.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_Roundify_12px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_Roundify_12px.BackgroundTransparency = 1.000
+TextLabel_Roundify_12px.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel_Roundify_12px.Size = UDim2.new(1, 0, 1, 0)
+TextLabel_Roundify_12px.ZIndex = 2
+TextLabel_Roundify_12px.Image = "rbxassetid://3570695787"
+TextLabel_Roundify_12px.ImageColor3 = Color3.fromRGB(31, 31, 31)
+TextLabel_Roundify_12px.ScaleType = Enum.ScaleType.Slice
+TextLabel_Roundify_12px.SliceCenter = Rect.new(100, 100, 100, 100)
+TextLabel_Roundify_12px.SliceScale = 0.120
+local debounce = os.clock()
+Script1.Name = "Script1"
+Script1.Parent = Frame
+Script1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Script1.BackgroundTransparency = 1.000
+Script1.BorderSizePixel = 0
+Script1.Position = UDim2.new(0, 10, 0, 150)
+Script1.Size = UDim2.new(0, 369, 0, 59)
+Script1.ZIndex = 3
+Script1.Font = Enum.Font.FredokaOne
+Script1.Text = "MM2 ESP + Silent Aim"
+Script1.TextColor3 = Color3.fromRGB(255, 255, 255)
+Script1.TextSize = 32.000
+Script1.MouseButton1Down:Connect(function()
+	if os.clock() - debounce > 10 then
+		return
+	end
+	MM2.Enabled = false
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "MM2 ESP + Silent Aim",
+		Text = "Script loading...",
+		Duration = 5
+	})
+	wait(5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Zrelyc/RBXClothes/main/MM2", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Zrelyc/RBXClothes/main/Script.Lua", true))()
+	debounce = os.clock()
+end)
+
+Script1_Roundify_12px.Name = "Script1_Roundify_12px"
+Script1_Roundify_12px.Parent = Script1
+Script1_Roundify_12px.Active = true
+Script1_Roundify_12px.AnchorPoint = Vector2.new(0.5, 0.5)
+Script1_Roundify_12px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Script1_Roundify_12px.BackgroundTransparency = 1.000
+Script1_Roundify_12px.Position = UDim2.new(0.5, 0, 0.5, 0)
+Script1_Roundify_12px.Selectable = true
+Script1_Roundify_12px.Size = UDim2.new(1, 0, 1, 0)
+Script1_Roundify_12px.ZIndex = 2
+Script1_Roundify_12px.Image = "rbxassetid://3570695787"
+Script1_Roundify_12px.ImageColor3 = Color3.fromRGB(94, 94, 94)
+Script1_Roundify_12px.ScaleType = Enum.ScaleType.Slice
+Script1_Roundify_12px.SliceCenter = Rect.new(100, 100, 100, 100)
+Script1_Roundify_12px.SliceScale = 0.120
+
+Script2.Name = "Script2"
+Script2.Parent = Frame
+Script2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Script2.BackgroundTransparency = 1.000
+Script2.BorderSizePixel = 0
+Script2.Position = UDim2.new(0, 10, 0, 75)
+Script2.Size = UDim2.new(0, 369, 0, 59)
+Script2.ZIndex = 3
+Script2.Font = Enum.Font.FredokaOne
+Script2.Text = "MM2 300+ Features"
+Script2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Script2.TextSize = 32.000
+Script2.MouseButton1Down:Connect(function()
+	if os.clock() - debounce > 10 then
+		return
+	end
+	MM2.Enabled = false
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "MM2 ESP + Silent Aim",
+		Text = "Script loading...",
+		Duration = 5
+	})
+	wait(5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Ethanoj1/EclipseMM2/master/Script", true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Zrelyc/RBXClothes/main/Script.Lua", true))()
+	debounce = os.clock()
+end)
+
+Script2_Roundify_12px.Name = "Script2_Roundify_12px"
+Script2_Roundify_12px.Parent = Script2
+Script2_Roundify_12px.Active = true
+Script2_Roundify_12px.AnchorPoint = Vector2.new(0.5, 0.5)
+Script2_Roundify_12px.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Script2_Roundify_12px.BackgroundTransparency = 1.000
+Script2_Roundify_12px.Position = UDim2.new(0.5, 0, 0.5, 0)
+Script2_Roundify_12px.Selectable = true
+Script2_Roundify_12px.Size = UDim2.new(1, 0, 1, 0)
+Script2_Roundify_12px.ZIndex = 2
+Script2_Roundify_12px.Image = "rbxassetid://3570695787"
+Script2_Roundify_12px.ImageColor3 = Color3.fromRGB(94, 94, 94)
+Script2_Roundify_12px.ScaleType = Enum.ScaleType.Slice
+Script2_Roundify_12px.SliceCenter = Rect.new(100, 100, 100, 100)
+Script2_Roundify_12px.SliceScale = 0.120
+
+local GameId = game.GameId
+
+if GameId == 142823291 then -- MM2
+	MM2.Enabled = true
+elseif GameId == 6447798030 then -- FunkyFriday
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Funky Friday",
+		Text = "Script loading...",
+		Duration = 5
+	})
+	wait(5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Zrelyc/RBXClothes/main/Script.Lua", true))()
+elseif GameId == 443406476 then -- Zombies
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Project Lazarus: Zombies",
+		Text = "Script loading...",
+		Duration = 5
+	})
+	wait(5)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Zrelyc/RBXClothes/main/Zombies", true))()
+end
