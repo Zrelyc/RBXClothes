@@ -243,7 +243,7 @@ EveryoneImage.SliceScale = 0.120
 local Player = game.Players.LocalPlayer
 local Mouse = Player:GetMouse()
 Mouse.KeyDown:Connect(function(key)
-	if key:lower() == "m" or key:upper() == "M" then
+	if key:lower() == "u" or key:upper() == "U" then
 		if Avatar.Enabled == true then
 			Avatar.Enabled = false
 		elseif Avatar.Enabled == false then
