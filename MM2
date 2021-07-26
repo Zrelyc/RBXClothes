@@ -1,25 +1,867 @@
-local Services = setmetatable({}, {__index = function(Self, Index)
-	local NewService = game.GetService(game, Index)
-	if NewService then
-		Self[Index] = NewService
-	end
-	return NewService
-end})
+local MurderMystery = Instance.new("ScreenGui")
+local Core = Instance.new("ImageLabel")
+local Categories = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local Author = Instance.new("TextLabel")
+local Main = Instance.new("TextButton")
+local MainImage = Instance.new("ImageLabel")
+local Player = Instance.new("TextButton")
+local PlayerImage = Instance.new("ImageLabel")
+local Settings = Instance.new("TextButton")
+local SettingsImage = Instance.new("ImageLabel")
+local Cat = Instance.new("TextLabel")
+local PlayersCat = Instance.new("Frame")
+local ESPToggle = Instance.new("TextButton")
+local PlayerSpeed = Instance.new("TextLabel")
+local PlayerJump = Instance.new("TextLabel")
+local NameESPToggle = Instance.new("TextButton")
+local NoClipToggle = Instance.new("TextButton")
+local NoClipToggleImage = Instance.new("ImageLabel")
+local PlayerCatTitle = Instance.new("TextLabel")
+local ExecuteAvatar = Instance.new("TextButton")
+local PlayerJumpBox = Instance.new("TextBox")
+local PlayerJumpBoxImage = Instance.new("ImageLabel")
+local PlayerSpeedBox = Instance.new("TextBox")
+local PlayerSpeedBoxImage = Instance.new("ImageLabel")
+local NoClip = Instance.new("TextLabel")
+local AvatarCatTitle = Instance.new("TextLabel")
+local PlayerSelection = Instance.new("TextBox")
+local PlayerNameTog = Instance.new("TextButton")
+local PlayerNameTogImage = Instance.new("ImageLabel")
+local Everyone = Instance.new("TextButton")
+local EveryoneImage = Instance.new("ImageLabel")
+local SettingsCat = Instance.new("Frame")
+local PlayerESPKey = Instance.new("TextLabel")
+local NameESPKey = Instance.new("TextLabel")
+local SilentAimKey = Instance.new("TextLabel")
+local SettingsCatTitle = Instance.new("TextLabel")
+local ToggleSpeedKey = Instance.new("TextLabel")
+local RolesKey = Instance.new("TextLabel")
+local PlayerESPBox = Instance.new("TextBox")
+local PlayerESPBoxImage = Instance.new("ImageLabel")
+local NameESPBox = Instance.new("TextBox")
+local NameESPBoxImage = Instance.new("ImageLabel")
+local SilentAimBox = Instance.new("TextBox")
+local SilentAimBoxImage = Instance.new("ImageLabel")
+local SwitchSpeedBox = Instance.new("TextBox")
+local SwitchSpeedBoxImage = Instance.new("ImageLabel")
+local RolesBox = Instance.new("TextBox")
+local RolesBoxImage = Instance.new("ImageLabel")
+local MainCat = Instance.new("Frame")
+local ESPToggle_2 = Instance.new("TextButton")
+local ESPToggleImage = Instance.new("ImageLabel")
+local ESP = Instance.new("TextLabel")
+local NameESP = Instance.new("TextLabel")
+local NameESPToggle_2 = Instance.new("TextButton")
+local NameESPToggleImage = Instance.new("ImageLabel")
+local SilentAim = Instance.new("TextLabel")
+local SilentAimToggle = Instance.new("TextButton")
+local SilentAimToggleImage = Instance.new("ImageLabel")
+local CatTitle = Instance.new("TextLabel")
 
--- [ LocalPlayer ] --
-local LocalPlayer = Services.Players.LocalPlayer
-local Camera = workspace.CurrentCamera
+MurderMystery.Name = "MurderMystery"
+MurderMystery.Parent = game.CoreGui
 
--- [ Weapon Names ] --
+Core.Name = "Core"
+Core.Parent = MurderMystery
+Core.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Core.BackgroundTransparency = 1.000
+Core.Position = UDim2.new(0, 474, 0, 15)
+Core.Size = UDim2.new(0, 697, 0, 399)
+Core.Image = "rbxassetid://3570695787"
+Core.ImageColor3 = Color3.fromRGB(0, 24, 45)
+Core.ScaleType = Enum.ScaleType.Slice
+Core.SliceCenter = Rect.new(100, 100, 100, 100)
+Core.SliceScale = 0.120
+Core.Draggable = true
+
+Categories.Name = "Categories"
+Categories.Parent = Core
+Categories.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Categories.BackgroundTransparency = 1.000
+Categories.Size = UDim2.new(0, 187, 0, 399)
+Categories.ZIndex = 2
+Categories.Image = "rbxassetid://3570695787"
+Categories.ImageColor3 = Color3.fromRGB(0, 47, 68)
+Categories.ScaleType = Enum.ScaleType.Slice
+Categories.SliceCenter = Rect.new(100, 100, 100, 100)
+Categories.SliceScale = 0.120
+
+Title.Name = "Title"
+Title.Parent = Categories
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 1, 0, 1)
+Title.Size = UDim2.new(0, 186, 0, 50)
+Title.ZIndex = 4
+Title.Font = Enum.Font.GothamBlack
+Title.LineHeight = 0.830
+Title.Text = "Lunar Hub"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 34.000
+
+Author.Name = "Author"
+Author.Parent = Categories
+Author.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Author.BackgroundTransparency = 1.000
+Author.BorderSizePixel = 0
+Author.Position = UDim2.new(0, 0, 0, 349)
+Author.Size = UDim2.new(0, 186, 0, 50)
+Author.ZIndex = 4
+Author.Font = Enum.Font.SourceSans
+Author.Text = "By: Luna"
+Author.TextColor3 = Color3.fromRGB(243, 243, 243)
+Author.TextSize = 20.000
+Author.TextTransparency = 0.700
+
+Main.Name = "Main"
+Main.Parent = Categories
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0, 1, 0, 76)
+Main.Size = UDim2.new(0, 186, 0, 50)
+Main.ZIndex = 4
+Main.Font = Enum.Font.GothamBlack
+Main.Text = "Main"
+Main.TextColor3 = Color3.fromRGB(255, 255, 255)
+Main.TextSize = 18.000
+
+MainImage.Name = "MainImage"
+MainImage.Parent = Main
+MainImage.Active = true
+MainImage.AnchorPoint = Vector2.new(0.5, 0.5)
+MainImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainImage.BackgroundTransparency = 1.000
+MainImage.BorderColor3 = Color3.fromRGB(255, 255, 255)
+MainImage.BorderSizePixel = 5
+MainImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainImage.Selectable = true
+MainImage.Size = UDim2.new(1, 0, 1, 0)
+MainImage.ZIndex = 3
+MainImage.Image = "rbxassetid://3570695787"
+MainImage.ImageColor3 = Color3.fromRGB(0, 75, 108)
+MainImage.ImageTransparency = 1.000
+MainImage.ScaleType = Enum.ScaleType.Slice
+MainImage.SliceCenter = Rect.new(100, 100, 100, 100)
+MainImage.SliceScale = 0.120
+
+Player.Name = "Player"
+Player.Parent = Categories
+Player.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Player.BackgroundTransparency = 1.000
+Player.BorderSizePixel = 0
+Player.Position = UDim2.new(0, 0, 0, 148)
+Player.Size = UDim2.new(0, 186, 0, 50)
+Player.ZIndex = 4
+Player.Font = Enum.Font.GothamBlack
+Player.Text = "Players"
+Player.TextColor3 = Color3.fromRGB(255, 255, 255)
+Player.TextSize = 18.000
+
+PlayerImage.Name = "PlayerImage"
+PlayerImage.Parent = Player
+PlayerImage.Active = true
+PlayerImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PlayerImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerImage.BackgroundTransparency = 1.000
+PlayerImage.BorderColor3 = Color3.fromRGB(255, 255, 255)
+PlayerImage.BorderSizePixel = 5
+PlayerImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+PlayerImage.Selectable = true
+PlayerImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerImage.ZIndex = 3
+PlayerImage.Image = "rbxassetid://3570695787"
+PlayerImage.ImageColor3 = Color3.fromRGB(0, 75, 108)
+PlayerImage.ImageTransparency = 1.000
+PlayerImage.ScaleType = Enum.ScaleType.Slice
+PlayerImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PlayerImage.SliceScale = 0.120
+
+Settings.Name = "Settings"
+Settings.Parent = Categories
+Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Settings.BackgroundTransparency = 1.000
+Settings.BorderSizePixel = 0
+Settings.Position = UDim2.new(0, 1, 0, 223)
+Settings.Size = UDim2.new(0, 186, 0, 50)
+Settings.ZIndex = 4
+Settings.Font = Enum.Font.GothamBlack
+Settings.Text = "Settings"
+Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+Settings.TextSize = 18.000
+
+SettingsImage.Name = "SettingsImage"
+SettingsImage.Parent = Settings
+SettingsImage.Active = true
+SettingsImage.AnchorPoint = Vector2.new(0.5, 0.5)
+SettingsImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsImage.BackgroundTransparency = 1.000
+SettingsImage.BorderColor3 = Color3.fromRGB(255, 255, 255)
+SettingsImage.BorderSizePixel = 5
+SettingsImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+SettingsImage.Selectable = true
+SettingsImage.Size = UDim2.new(1, 0, 1, 0)
+SettingsImage.ZIndex = 3
+SettingsImage.Image = "rbxassetid://3570695787"
+SettingsImage.ImageColor3 = Color3.fromRGB(0, 75, 108)
+SettingsImage.ImageTransparency = 1.000
+SettingsImage.ScaleType = Enum.ScaleType.Slice
+SettingsImage.SliceCenter = Rect.new(100, 100, 100, 100)
+SettingsImage.SliceScale = 0.120
+
+Cat.Name = "Cat"
+Cat.Parent = Categories
+Cat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cat.BackgroundTransparency = 1.000
+Cat.BorderSizePixel = 0
+Cat.Position = UDim2.new(0, -32, 0, 39)
+Cat.Size = UDim2.new(0, 200, 0, 50)
+Cat.ZIndex = 3
+Cat.Font = Enum.Font.GothamBlack
+Cat.Text = "Select a Category"
+Cat.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cat.TextSize = 14.000
+Cat.TextTransparency = 0.700
+
+PlayersCat.Name = "PlayersCat"
+PlayersCat.Parent = Core
+PlayersCat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayersCat.BackgroundTransparency = 1.000
+PlayersCat.BorderSizePixel = 0
+PlayersCat.Position = UDim2.new(0.268292695, 0, 0.00250626565, 0)
+PlayersCat.Size = UDim2.new(0, 510, 0, 398)
+PlayersCat.Visible = false
+
+PlayerSpeed.Name = "PlayerSpeed"
+PlayerSpeed.Parent = PlayersCat
+PlayerSpeed.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+PlayerSpeed.BorderSizePixel = 0
+PlayerSpeed.Position = UDim2.new(0.0392156877, 0, 0.123115577, 0)
+PlayerSpeed.Size = UDim2.new(0, 396, 0, 50)
+PlayerSpeed.ZIndex = 2
+PlayerSpeed.Font = Enum.Font.SourceSans
+PlayerSpeed.Text = "Player Speed (Default 16)"
+PlayerSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerSpeed.TextSize = 27.000
+
+PlayerJump.Name = "PlayerJump"
+PlayerJump.Parent = PlayersCat
+PlayerJump.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+PlayerJump.BorderSizePixel = 0
+PlayerJump.Position = UDim2.new(0.0392156877, 0, 0.278894484, 0)
+PlayerJump.Size = UDim2.new(0, 396, 0, 50)
+PlayerJump.ZIndex = 2
+PlayerJump.Font = Enum.Font.SourceSans
+PlayerJump.Text = "Player Jump Power (Default 50)"
+PlayerJump.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerJump.TextSize = 27.000
+
+NoClipToggle.Name = "NoClipToggle"
+NoClipToggle.Parent = PlayersCat
+NoClipToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NoClipToggle.BackgroundTransparency = 1.000
+NoClipToggle.BorderSizePixel = 0
+NoClipToggle.Position = UDim2.new(0.861000001, 0, 0.435000002, 0)
+NoClipToggle.Size = UDim2.new(0, 50, 0, 50)
+NoClipToggle.Font = Enum.Font.SourceSans
+NoClipToggle.Text = "O"
+NoClipToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+NoClipToggle.TextSize = 47.000
+
+NoClipToggleImage.Name = "NoClipToggleImage"
+NoClipToggleImage.Parent = NoClipToggle
+NoClipToggleImage.Active = true
+NoClipToggleImage.AnchorPoint = Vector2.new(0.5, 0.5)
+NoClipToggleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NoClipToggleImage.BackgroundTransparency = 1.000
+NoClipToggleImage.Position = UDim2.new(0.5, 0, 0.49999997, 0)
+NoClipToggleImage.Selectable = true
+NoClipToggleImage.Size = UDim2.new(1, 0, 1, 0)
+NoClipToggleImage.Image = "rbxassetid://3570695787"
+NoClipToggleImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+NoClipToggleImage.ScaleType = Enum.ScaleType.Slice
+NoClipToggleImage.SliceCenter = Rect.new(100, 100, 100, 100)
+NoClipToggleImage.SliceScale = 0.120
+
+PlayerCatTitle.Name = "PlayerCatTitle"
+PlayerCatTitle.Parent = PlayersCat
+PlayerCatTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerCatTitle.BackgroundTransparency = 1.000
+PlayerCatTitle.BorderSizePixel = 0
+PlayerCatTitle.Position = UDim2.new(0, 20, 0, -1)
+PlayerCatTitle.Size = UDim2.new(0, 147, 0, 50)
+PlayerCatTitle.ZIndex = 2
+PlayerCatTitle.Font = Enum.Font.GothamBlack
+PlayerCatTitle.Text = "Player Settings"
+PlayerCatTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerCatTitle.TextSize = 21.000
+PlayerCatTitle.TextTransparency = 0.700
+
+ExecuteAvatar.Name = "ExecuteAvatar"
+ExecuteAvatar.Parent = PlayersCat
+ExecuteAvatar.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+ExecuteAvatar.BorderSizePixel = 0
+ExecuteAvatar.Position = UDim2.new(0.0390000008, 0, -0.0502512567, 300)
+ExecuteAvatar.Size = UDim2.new(0, 396, 0, 50)
+ExecuteAvatar.Font = Enum.Font.SourceSans
+ExecuteAvatar.Text = "Change Player Avatars"
+ExecuteAvatar.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExecuteAvatar.TextSize = 27.000
+
+PlayerJumpBox.Name = "PlayerJumpBox"
+PlayerJumpBox.Parent = PlayersCat
+PlayerJumpBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerJumpBox.BackgroundTransparency = 1.000
+PlayerJumpBox.BorderSizePixel = 0
+PlayerJumpBox.Position = UDim2.new(0.861000001, 0, 0, 111)
+PlayerJumpBox.Size = UDim2.new(0, 50, 0, 50)
+PlayerJumpBox.ZIndex = 2
+PlayerJumpBox.Font = Enum.Font.GothamBlack
+PlayerJumpBox.Text = "50"
+PlayerJumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerJumpBox.TextSize = 23.000
+
+PlayerJumpBoxImage.Name = "PlayerJumpBoxImage"
+PlayerJumpBoxImage.Parent = PlayerJumpBox
+PlayerJumpBoxImage.Active = true
+PlayerJumpBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PlayerJumpBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerJumpBoxImage.BackgroundTransparency = 1.000
+PlayerJumpBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+PlayerJumpBoxImage.Selectable = true
+PlayerJumpBoxImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerJumpBoxImage.Image = "rbxassetid://3570695787"
+PlayerJumpBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+PlayerJumpBoxImage.ScaleType = Enum.ScaleType.Slice
+PlayerJumpBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PlayerJumpBoxImage.SliceScale = 0.120
+
+PlayerSpeedBox.Name = "PlayerSpeedBox"
+PlayerSpeedBox.Parent = PlayersCat
+PlayerSpeedBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerSpeedBox.BackgroundTransparency = 1.000
+PlayerSpeedBox.BorderSizePixel = 0
+PlayerSpeedBox.Position = UDim2.new(0.861000001, 0, 0.123000003, 0)
+PlayerSpeedBox.Size = UDim2.new(0, 50, 0, 50)
+PlayerSpeedBox.ZIndex = 2
+PlayerSpeedBox.Font = Enum.Font.GothamBlack
+PlayerSpeedBox.Text = "16"
+PlayerSpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerSpeedBox.TextSize = 23.000
+
+PlayerSpeedBoxImage.Name = "PlayerSpeedBoxImage"
+PlayerSpeedBoxImage.Parent = PlayerSpeedBox
+PlayerSpeedBoxImage.Active = true
+PlayerSpeedBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PlayerSpeedBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerSpeedBoxImage.BackgroundTransparency = 1.000
+PlayerSpeedBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+PlayerSpeedBoxImage.Selectable = true
+PlayerSpeedBoxImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerSpeedBoxImage.Image = "rbxassetid://3570695787"
+PlayerSpeedBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+PlayerSpeedBoxImage.ScaleType = Enum.ScaleType.Slice
+PlayerSpeedBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PlayerSpeedBoxImage.SliceScale = 0.120
+
+NoClip.Name = "NoClip"
+NoClip.Parent = PlayersCat
+NoClip.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+NoClip.BorderSizePixel = 0
+NoClip.Position = UDim2.new(0.0390000008, 0, 0, 173)
+NoClip.Size = UDim2.new(0, 396, 0, 50)
+NoClip.ZIndex = 2
+NoClip.Font = Enum.Font.SourceSans
+NoClip.Text = "Player No Clip"
+NoClip.TextColor3 = Color3.fromRGB(255, 255, 255)
+NoClip.TextSize = 27.000
+
+AvatarCatTitle.Name = "AvatarCatTitle"
+AvatarCatTitle.Parent = PlayersCat
+AvatarCatTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AvatarCatTitle.BackgroundTransparency = 1.000
+AvatarCatTitle.BorderSizePixel = 0
+AvatarCatTitle.Position = UDim2.new(0, 20, 0, 230)
+AvatarCatTitle.Size = UDim2.new(0, 156, 0, 50)
+AvatarCatTitle.ZIndex = 2
+AvatarCatTitle.Font = Enum.Font.GothamBlack
+AvatarCatTitle.Text = "Avatar Settings"
+AvatarCatTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+AvatarCatTitle.TextSize = 21.000
+AvatarCatTitle.TextTransparency = 0.700
+
+PlayerSelection.Name = "PlayerSelection"
+PlayerSelection.Parent = PlayersCat
+PlayerSelection.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+PlayerSelection.BorderSizePixel = 0
+PlayerSelection.Position = UDim2.new(0.0392156877, 0, 0.859296501, 0)
+PlayerSelection.Size = UDim2.new(0, 396, 0, 42)
+PlayerSelection.Font = Enum.Font.GothamBlack
+PlayerSelection.Text = "Player Name"
+PlayerSelection.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerSelection.TextSize = 29.000
+
+PlayerNameTog.Name = "PlayerNameTog"
+PlayerNameTog.Parent = PlayersCat
+PlayerNameTog.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerNameTog.BackgroundTransparency = 1.000
+PlayerNameTog.BorderSizePixel = 0
+PlayerNameTog.Position = UDim2.new(0.861000001, 0, 0.859000027, 0)
+PlayerNameTog.Size = UDim2.new(0, 50, 0, 42)
+PlayerNameTog.Font = Enum.Font.SourceSans
+PlayerNameTog.Text = ""
+PlayerNameTog.TextColor3 = Color3.fromRGB(0, 0, 0)
+PlayerNameTog.TextSize = 47.000
+
+PlayerNameTogImage.Name = "PlayerNameTogImage"
+PlayerNameTogImage.Parent = PlayerNameTog
+PlayerNameTogImage.Active = true
+PlayerNameTogImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PlayerNameTogImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerNameTogImage.BackgroundTransparency = 1.000
+PlayerNameTogImage.Position = UDim2.new(0.5, 0, 0.49999997, 0)
+PlayerNameTogImage.Selectable = true
+PlayerNameTogImage.Size = UDim2.new(1, 0, 0, 42)
+PlayerNameTogImage.Image = "rbxassetid://3570695787"
+PlayerNameTogImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+PlayerNameTogImage.ScaleType = Enum.ScaleType.Slice
+PlayerNameTogImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PlayerNameTogImage.SliceScale = 0.120
+
+Everyone.Name = "Everyone"
+Everyone.Parent = PlayersCat
+Everyone.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Everyone.BackgroundTransparency = 1.000
+Everyone.BorderSizePixel = 0
+Everyone.Position = UDim2.new(0.861000001, 0, -0.0502512567, 300)
+Everyone.Size = UDim2.new(0, 50, 0, 50)
+Everyone.Font = Enum.Font.SourceSans
+Everyone.Text = ""
+Everyone.TextColor3 = Color3.fromRGB(0, 0, 0)
+Everyone.TextSize = 47.000
+
+EveryoneImage.Name = "EveryoneImage"
+EveryoneImage.Parent = Everyone
+EveryoneImage.Active = true
+EveryoneImage.AnchorPoint = Vector2.new(0.5, 0.5)
+EveryoneImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EveryoneImage.BackgroundTransparency = 1.000
+EveryoneImage.Position = UDim2.new(0.5, 0, 0.49999997, 0)
+EveryoneImage.Selectable = true
+EveryoneImage.Size = UDim2.new(1, 0, 1, 0)
+EveryoneImage.Image = "rbxassetid://3570695787"
+EveryoneImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+EveryoneImage.ScaleType = Enum.ScaleType.Slice
+EveryoneImage.SliceCenter = Rect.new(100, 100, 100, 100)
+EveryoneImage.SliceScale = 0.120
+
+SettingsCat.Name = "SettingsCat"
+SettingsCat.Parent = Core
+SettingsCat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsCat.BackgroundTransparency = 1.000
+SettingsCat.BorderSizePixel = 0
+SettingsCat.Position = UDim2.new(0.268292695, 0, 0.00250626565, 0)
+SettingsCat.Size = UDim2.new(0, 510, 0, 398)
+SettingsCat.Visible = false
+
+PlayerESPKey.Name = "PlayerESPKey"
+PlayerESPKey.Parent = SettingsCat
+PlayerESPKey.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+PlayerESPKey.BorderSizePixel = 0
+PlayerESPKey.Position = UDim2.new(0.0392156877, 0, 0.123115577, 0)
+PlayerESPKey.Size = UDim2.new(0, 396, 0, 50)
+PlayerESPKey.ZIndex = 2
+PlayerESPKey.Font = Enum.Font.SourceSans
+PlayerESPKey.Text = "Player ESP Keybind"
+PlayerESPKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerESPKey.TextSize = 27.000
+
+NameESPKey.Name = "NameESPKey"
+NameESPKey.Parent = SettingsCat
+NameESPKey.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+NameESPKey.BorderSizePixel = 0
+NameESPKey.Position = UDim2.new(0.0392156877, 0, 0.278894484, 0)
+NameESPKey.Size = UDim2.new(0, 396, 0, 50)
+NameESPKey.ZIndex = 2
+NameESPKey.Font = Enum.Font.SourceSans
+NameESPKey.Text = "Name ESP  Keybind"
+NameESPKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameESPKey.TextSize = 27.000
+
+SilentAimKey.Name = "SilentAimKey"
+SilentAimKey.Parent = SettingsCat
+SilentAimKey.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+SilentAimKey.BorderSizePixel = 0
+SilentAimKey.Position = UDim2.new(0.0392156877, 0, 0.434673369, 0)
+SilentAimKey.Size = UDim2.new(0, 396, 0, 50)
+SilentAimKey.ZIndex = 2
+SilentAimKey.Font = Enum.Font.SourceSans
+SilentAimKey.Text = "Silent Aim  Keybind"
+SilentAimKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+SilentAimKey.TextSize = 27.000
+
+SettingsCatTitle.Name = "SettingsCatTitle"
+SettingsCatTitle.Parent = SettingsCat
+SettingsCatTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsCatTitle.BackgroundTransparency = 1.000
+SettingsCatTitle.BorderSizePixel = 0
+SettingsCatTitle.Position = UDim2.new(0, 20, 0, 0)
+SettingsCatTitle.Size = UDim2.new(0, 95, 0, 50)
+SettingsCatTitle.ZIndex = 2
+SettingsCatTitle.Font = Enum.Font.GothamBlack
+SettingsCatTitle.Text = "Keybinds"
+SettingsCatTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+SettingsCatTitle.TextSize = 21.000
+SettingsCatTitle.TextTransparency = 0.700
+
+ToggleSpeedKey.Name = "ToggleSpeedKey"
+ToggleSpeedKey.Parent = SettingsCat
+ToggleSpeedKey.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+ToggleSpeedKey.BorderSizePixel = 0
+ToggleSpeedKey.Position = UDim2.new(0.0392156877, 0, 0.592964828, 0)
+ToggleSpeedKey.Size = UDim2.new(0, 396, 0, 50)
+ToggleSpeedKey.ZIndex = 2
+ToggleSpeedKey.Font = Enum.Font.SourceSans
+ToggleSpeedKey.Text = "Switch Speed  Keybind"
+ToggleSpeedKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleSpeedKey.TextSize = 27.000
+
+RolesKey.Name = "RolesKey"
+RolesKey.Parent = SettingsCat
+RolesKey.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+RolesKey.BorderSizePixel = 0
+RolesKey.Position = UDim2.new(0.0392156877, 0, 0.748743713, 0)
+RolesKey.Size = UDim2.new(0, 396, 0, 50)
+RolesKey.ZIndex = 2
+RolesKey.Font = Enum.Font.SourceSans
+RolesKey.Text = "Notify Roles Keybind"
+RolesKey.TextColor3 = Color3.fromRGB(255, 255, 255)
+RolesKey.TextSize = 27.000
+
+PlayerESPBox.Name = "PlayerESPBox"
+PlayerESPBox.Parent = SettingsCat
+PlayerESPBox.BackgroundColor3 = Color3.fromRGB(2, 0, 89)
+PlayerESPBox.BackgroundTransparency = 1.000
+PlayerESPBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+PlayerESPBox.BorderSizePixel = 0
+PlayerESPBox.Position = UDim2.new(0, 440, 0, 49)
+PlayerESPBox.Size = UDim2.new(0, 50, 0, 50)
+PlayerESPBox.ZIndex = 2
+PlayerESPBox.Font = Enum.Font.GothamBlack
+PlayerESPBox.Text = "B"
+PlayerESPBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerESPBox.TextSize = 31.000
+
+PlayerESPBoxImage.Name = "PlayerESPBoxImage"
+PlayerESPBoxImage.Parent = PlayerESPBox
+PlayerESPBoxImage.Active = true
+PlayerESPBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+PlayerESPBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerESPBoxImage.BackgroundTransparency = 1.000
+PlayerESPBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+PlayerESPBoxImage.Selectable = true
+PlayerESPBoxImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerESPBoxImage.Image = "rbxassetid://3570695787"
+PlayerESPBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+PlayerESPBoxImage.ScaleType = Enum.ScaleType.Slice
+PlayerESPBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+PlayerESPBoxImage.SliceScale = 0.120
+
+NameESPBox.Name = "NameESPBox"
+NameESPBox.Parent = SettingsCat
+NameESPBox.BackgroundColor3 = Color3.fromRGB(2, 0, 89)
+NameESPBox.BackgroundTransparency = 1.000
+NameESPBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+NameESPBox.BorderSizePixel = 0
+NameESPBox.Position = UDim2.new(0, 440, 0, 111)
+NameESPBox.Size = UDim2.new(0, 50, 0, 50)
+NameESPBox.ZIndex = 2
+NameESPBox.Font = Enum.Font.GothamBlack
+NameESPBox.Text = "Z"
+NameESPBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameESPBox.TextSize = 31.000
+
+NameESPBoxImage.Name = "NameESPBoxImage"
+NameESPBoxImage.Parent = NameESPBox
+NameESPBoxImage.Active = true
+NameESPBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+NameESPBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameESPBoxImage.BackgroundTransparency = 1.000
+NameESPBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+NameESPBoxImage.Selectable = true
+NameESPBoxImage.Size = UDim2.new(1, 0, 1, 0)
+NameESPBoxImage.Image = "rbxassetid://3570695787"
+NameESPBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+NameESPBoxImage.ScaleType = Enum.ScaleType.Slice
+NameESPBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+NameESPBoxImage.SliceScale = 0.120
+
+SilentAimBox.Name = "SilentAimBox"
+SilentAimBox.Parent = SettingsCat
+SilentAimBox.BackgroundColor3 = Color3.fromRGB(2, 0, 89)
+SilentAimBox.BackgroundTransparency = 1.000
+SilentAimBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+SilentAimBox.BorderSizePixel = 0
+SilentAimBox.Position = UDim2.new(0, 440, 0, 173)
+SilentAimBox.Size = UDim2.new(0, 50, 0, 50)
+SilentAimBox.ZIndex = 2
+SilentAimBox.Font = Enum.Font.GothamBlack
+SilentAimBox.Text = "X"
+SilentAimBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+SilentAimBox.TextSize = 31.000
+
+SilentAimBoxImage.Name = "SilentAimBoxImage"
+SilentAimBoxImage.Parent = SilentAimBox
+SilentAimBoxImage.Active = true
+SilentAimBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+SilentAimBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SilentAimBoxImage.BackgroundTransparency = 1.000
+SilentAimBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+SilentAimBoxImage.Selectable = true
+SilentAimBoxImage.Size = UDim2.new(1, 0, 1, 0)
+SilentAimBoxImage.Image = "rbxassetid://3570695787"
+SilentAimBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+SilentAimBoxImage.ScaleType = Enum.ScaleType.Slice
+SilentAimBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+SilentAimBoxImage.SliceScale = 0.120
+
+SwitchSpeedBox.Name = "SwitchSpeedBox"
+SwitchSpeedBox.Parent = SettingsCat
+SwitchSpeedBox.BackgroundColor3 = Color3.fromRGB(2, 0, 89)
+SwitchSpeedBox.BackgroundTransparency = 1.000
+SwitchSpeedBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+SwitchSpeedBox.BorderSizePixel = 0
+SwitchSpeedBox.Position = UDim2.new(0, 440, 0.592999995, 0)
+SwitchSpeedBox.Size = UDim2.new(0, 50, 0, 50)
+SwitchSpeedBox.ZIndex = 2
+SwitchSpeedBox.Font = Enum.Font.GothamBlack
+SwitchSpeedBox.Text = "V"
+SwitchSpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+SwitchSpeedBox.TextSize = 31.000
+
+SwitchSpeedBoxImage.Name = "SwitchSpeedBoxImage"
+SwitchSpeedBoxImage.Parent = SwitchSpeedBox
+SwitchSpeedBoxImage.Active = true
+SwitchSpeedBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+SwitchSpeedBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SwitchSpeedBoxImage.BackgroundTransparency = 1.000
+SwitchSpeedBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+SwitchSpeedBoxImage.Selectable = true
+SwitchSpeedBoxImage.Size = UDim2.new(1, 0, 1, 0)
+SwitchSpeedBoxImage.Image = "rbxassetid://3570695787"
+SwitchSpeedBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+SwitchSpeedBoxImage.ScaleType = Enum.ScaleType.Slice
+SwitchSpeedBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+SwitchSpeedBoxImage.SliceScale = 0.120
+
+RolesBox.Name = "RolesBox"
+RolesBox.Parent = SettingsCat
+RolesBox.BackgroundColor3 = Color3.fromRGB(2, 0, 89)
+RolesBox.BackgroundTransparency = 1.000
+RolesBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+RolesBox.BorderSizePixel = 0
+RolesBox.Position = UDim2.new(0, 440, 0.749000013, 0)
+RolesBox.Size = UDim2.new(0, 50, 0, 50)
+RolesBox.ZIndex = 2
+RolesBox.Font = Enum.Font.GothamBlack
+RolesBox.Text = "C"
+RolesBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+RolesBox.TextSize = 31.000
+
+RolesBoxImage.Name = "RolesBoxImage"
+RolesBoxImage.Parent = RolesBox
+RolesBoxImage.Active = true
+RolesBoxImage.AnchorPoint = Vector2.new(0.5, 0.5)
+RolesBoxImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RolesBoxImage.BackgroundTransparency = 1.000
+RolesBoxImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+RolesBoxImage.Selectable = true
+RolesBoxImage.Size = UDim2.new(1, 0, 1, 0)
+RolesBoxImage.Image = "rbxassetid://3570695787"
+RolesBoxImage.ImageColor3 = Color3.fromRGB(2, 0, 89)
+RolesBoxImage.ScaleType = Enum.ScaleType.Slice
+RolesBoxImage.SliceCenter = Rect.new(100, 100, 100, 100)
+RolesBoxImage.SliceScale = 0.120
+
+MainCat.Name = "MainCat"
+MainCat.Parent = Core
+MainCat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainCat.BackgroundTransparency = 1.000
+MainCat.BorderSizePixel = 0
+MainCat.Position = UDim2.new(0.268292695, 0, 0.00250626565, 0)
+MainCat.Size = UDim2.new(0, 510, 0, 398)
+
+ESPToggle_2.Name = "ESPToggle"
+ESPToggle_2.Parent = MainCat
+ESPToggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ESPToggle_2.BackgroundTransparency = 1.000
+ESPToggle_2.BorderSizePixel = 0
+ESPToggle_2.Position = UDim2.new(0.864705861, 0, 0.123115577, 0)
+ESPToggle_2.Size = UDim2.new(0, 50, 0, 50)
+ESPToggle_2.Font = Enum.Font.SourceSans
+ESPToggle_2.Text = ""
+ESPToggle_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+ESPToggle_2.TextSize = 14.000
+
+ESPToggleImage.Name = "ESPToggleImage"
+ESPToggleImage.Parent = ESPToggle_2
+ESPToggleImage.Active = true
+ESPToggleImage.AnchorPoint = Vector2.new(0.5, 0.5)
+ESPToggleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ESPToggleImage.BackgroundTransparency = 1.000
+ESPToggleImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+ESPToggleImage.Selectable = true
+ESPToggleImage.Size = UDim2.new(1, 0, 1, 0)
+ESPToggleImage.Image = "rbxassetid://3570695787"
+ESPToggleImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+ESPToggleImage.ScaleType = Enum.ScaleType.Slice
+ESPToggleImage.SliceCenter = Rect.new(100, 100, 100, 100)
+ESPToggleImage.SliceScale = 0.120
+
+ESP.Name = "ESP"
+ESP.Parent = MainCat
+ESP.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+ESP.BorderSizePixel = 0
+ESP.Position = UDim2.new(0.0392156877, 0, 0.123115577, 0)
+ESP.Size = UDim2.new(0, 396, 0, 50)
+ESP.ZIndex = 2
+ESP.Font = Enum.Font.SourceSans
+ESP.Text = "Sheriff & Murder ESP"
+ESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+ESP.TextSize = 27.000
+
+NameESP.Name = "NameESP"
+NameESP.Parent = MainCat
+NameESP.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+NameESP.BorderSizePixel = 0
+NameESP.Position = UDim2.new(0.0392156877, 0, 0.278894484, 0)
+NameESP.Size = UDim2.new(0, 396, 0, 50)
+NameESP.ZIndex = 2
+NameESP.Font = Enum.Font.SourceSans
+NameESP.Text = "All Name ESP"
+NameESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+NameESP.TextSize = 27.000
+
+NameESPToggle_2.Name = "NameESPToggle"
+NameESPToggle_2.Parent = MainCat
+NameESPToggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameESPToggle_2.BackgroundTransparency = 1.000
+NameESPToggle_2.BorderSizePixel = 0
+NameESPToggle_2.Position = UDim2.new(0.864705861, 0, 0.304020107, 0)
+NameESPToggle_2.Size = UDim2.new(0, 50, 0, 50)
+NameESPToggle_2.Font = Enum.Font.SourceSans
+NameESPToggle_2.Text = ""
+NameESPToggle_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+NameESPToggle_2.TextSize = 14.000
+
+NameESPToggleImage.Name = "NameESPToggleImage"
+NameESPToggleImage.Parent = NameESPToggle_2
+NameESPToggleImage.Active = true
+NameESPToggleImage.AnchorPoint = Vector2.new(0.5, 0.5)
+NameESPToggleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameESPToggleImage.BackgroundTransparency = 1.000
+NameESPToggleImage.Position = UDim2.new(0.5, 0, 0.300000012, 0)
+NameESPToggleImage.Selectable = true
+NameESPToggleImage.Size = UDim2.new(1, 0, 1, 0)
+NameESPToggleImage.Image = "rbxassetid://3570695787"
+NameESPToggleImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+NameESPToggleImage.ScaleType = Enum.ScaleType.Slice
+NameESPToggleImage.SliceCenter = Rect.new(100, 100, 100, 100)
+NameESPToggleImage.SliceScale = 0.120
+
+SilentAim.Name = "SilentAim"
+SilentAim.Parent = MainCat
+SilentAim.BackgroundColor3 = Color3.fromRGB(0, 11, 42)
+SilentAim.BorderSizePixel = 0
+SilentAim.Position = UDim2.new(0.0392156877, 0, 0.434673369, 0)
+SilentAim.Size = UDim2.new(0, 396, 0, 50)
+SilentAim.ZIndex = 2
+SilentAim.Font = Enum.Font.SourceSans
+SilentAim.Text = "Silent Aim"
+SilentAim.TextColor3 = Color3.fromRGB(255, 255, 255)
+SilentAim.TextSize = 27.000
+
+SilentAimToggle.Name = "SilentAimToggle"
+SilentAimToggle.Parent = MainCat
+SilentAimToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SilentAimToggle.BackgroundTransparency = 1.000
+SilentAimToggle.BorderSizePixel = 0
+SilentAimToggle.Position = UDim2.new(0.864705861, 0, 0.477386922, 0)
+SilentAimToggle.Size = UDim2.new(0, 50, 0, 50)
+SilentAimToggle.Font = Enum.Font.SourceSans
+SilentAimToggle.Text = ""
+SilentAimToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+SilentAimToggle.TextSize = 14.000
+
+SilentAimToggleImage.Name = "SilentAimToggleImage"
+SilentAimToggleImage.Parent = SilentAimToggle
+SilentAimToggleImage.Active = true
+SilentAimToggleImage.AnchorPoint = Vector2.new(0.5, 0.5)
+SilentAimToggleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SilentAimToggleImage.BackgroundTransparency = 1.000
+SilentAimToggleImage.Position = UDim2.new(0.5, 0, 0.159999996, 0)
+SilentAimToggleImage.Selectable = true
+SilentAimToggleImage.Size = UDim2.new(1, 0, 1, 0)
+SilentAimToggleImage.Image = "rbxassetid://3570695787"
+SilentAimToggleImage.ImageColor3 = Color3.fromRGB(0, 0, 79)
+SilentAimToggleImage.ScaleType = Enum.ScaleType.Slice
+SilentAimToggleImage.SliceCenter = Rect.new(100, 100, 100, 100)
+SilentAimToggleImage.SliceScale = 0.120
+
+CatTitle.Name = "CatTitle"
+CatTitle.Parent = MainCat
+CatTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CatTitle.BackgroundTransparency = 1.000
+CatTitle.BorderSizePixel = 0
+CatTitle.Position = UDim2.new(0, 20, 0, -1)
+CatTitle.Size = UDim2.new(0, 139, 0, 50)
+CatTitle.ZIndex = 2
+CatTitle.Font = Enum.Font.GothamBlack
+CatTitle.Text = "Main Toggles"
+CatTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+CatTitle.TextSize = 21.000
+CatTitle.TextTransparency = 0.700
+
+-- [[ Functions ]] --
+
+local ToggleButtonOffColor = Color3.fromRGB(0, 0, 79)
+local ToggleButtonOnColor = Color3.fromRGB(0, 48, 152)
+
+local ClickGuiBind = Enum.KeyCode.Insert
+local NotifyRolesBind = Enum.KeyCode.C
+local SilentAimBind = Enum.KeyCode.X
+local PlayerESPBind = Enum.KeyCode.B
+local NameESPBind = Enum.KeyCode.Z
+local SwitchSpeedBind = Enum.KeyCode.V
+
+local AvatarStage = 0
+local ChangeEveryone = false
+
+local ESPisON = false
+
+local PlayerNameISon = false
+
+local AvatarPlayerName = nil
+
+local ESPInstances = {}
+
+local Roles = {
+	Murderer = nil,
+	Sheriff = nil,
+	Closest = nil
+}
+
 local WeaponNames = {
 	Knife = {
 		Index = "Murderer";
 		Color = Color3.fromRGB(255, 0, 0)
-	};
+	},
 	Gun = {
 		Index = "Sheriff";
-		Color = Color3.fromRGB(0, 0, 255)
-	};
+		Color = Color3.fromRGB(85, 0, 255)
+	}
 }
 
 local AttackAnimations = {
@@ -29,47 +871,37 @@ local AttackAnimations = {
 	"rbxassetid://2467577524";
 }
 
--- // Variables \\ --
--- [ Roles ] --
-local Roles = {
-	Murderer = nil;
-	Sheriff = nil;
-	Closest = nil;
-}
+function NotifyRoles()
+	if Roles.Murderer then
+		local Image, Ready = game.Players:GetUserThumbnailAsync(Roles.Murderer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = 'Murderer';
+			Text = Roles.Murderer.Name;
+			Icon = Image;
+			Duration = 5;
+		})
+	end
 
-local ESPInstances = {}
-local ESPToggle = true
+	if Roles.Sheriff then
+		local Image, Ready = game.Players:GetUserThumbnailAsync(Roles.Sheriff.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = 'Sheriff';
+			Text = Roles.Sheriff.Name;
+			Icon = Image;
+			Duration = 5;
+		})
+	end
+end
 
-local SilentAIMEnabled = true
-
--- [ Character ] --
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local Humanoid = Character:WaitForChild("Humanoid")
-LocalPlayer.CharacterAdded:Connect(function(Character)
-	Character = Character
-	Humanoid = Character:WaitForChild("Humanoid")
-end)
-
--- [ Raycast Parameters ] --
-local RaycastParameters = RaycastParams.new()
-RaycastParameters.IgnoreWater = true
-RaycastParameters.FilterType = Enum.RaycastFilterType.Blacklist
-RaycastParameters.FilterDescendantsInstances = {LocalPlayer.Character}
-
--- // Functions \\ --
--- [ Main ] --
-local Functions = {}
-
--- ESP --
-function Functions.ESP(Part, Color)
-	if Part:FindFirstChildOfClass('BoxHandleAdornment') then
-		return Part:FindFirstChildOfClass('BoxHandleAdornment')
+function ESPActivate(Part, Color)
+	if Part:FindFirstChildOfClass("BoxHandleAdornment") then
+		return Part:FindFirstChildOfClass("BoxHandleAdornment")
 	end
 
 	local Box = Instance.new("BoxHandleAdornment")
 	Box.Size = Part.Size + Vector3.new(0.1, 0.1, 0.1)
 	Box.Name = "Mesh"
-	Box.Visible = ESPToggle
+	Box.Visible = ESPisON
 	Box.Adornee = Part
 	Box.Color3 = Color
 	Box.AlwaysOnTop = true
@@ -82,215 +914,705 @@ function Functions.ESP(Part, Color)
 	return Box
 end
 
--- Notify Roles --
-function Functions.NotifyRoles()
-	if Roles.Murderer then
-		-- Murderer --
-		local Image, Ready = Services.Players:GetUserThumbnailAsync(Roles.Murderer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-		Services.StarterGui:SetCore("SendNotification", {
-			Title = 'Murderer';
-			Text = Roles.Murderer.Name;
-			Icon = Image;
-			Duration = 5;
-		})
-	end
-
-	if Roles.Sheriff then
-		-- Sheriff --
-		local Image, Ready = Services.Players:GetUserThumbnailAsync(Roles.Sheriff.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-		Services.StarterGui:SetCore("SendNotification", {
-			Title = 'Sheriff';
-			Text = Roles.Sheriff.Name;
-			Icon = Image;
-			Duration = 5;
-		})
-	end
-end
-
--- GetClosestPlayer --
-function Functions.GetClosestPlayer(MaxDistance)
-	local ClosestPlayer = nil
-	local FarthestDistance = MaxDistance or math.huge
-
-	for i, v in ipairs(Services.Players.GetPlayers(Services.Players)) do
-		if v ~= LocalPlayer then
-			pcall(function()
-				local DistanceFromPlayer = (LocalPlayer.Character.PrimaryPart.Position - v.Character.PrimaryPart.Position).Magnitude
-				if DistanceFromPlayer < FarthestDistance then
-					FarthestDistance = DistanceFromPlayer
-					ClosestPlayer = v
-				end
-			end)
-		end
-	end
-
-	return ClosestPlayer
-end
-
--- [ Event ] --
-local EventFunctions = {}
-
-function EventFunctions.Initialize(Player)
+function Initialize(Player)
 	local function CharacterAdded(Character)
 		Player:WaitForChild("Backpack").ChildAdded:Connect(function(Child)
 			local Role = WeaponNames[Child.Name]
 			if Role then
 				Roles[Role.Index] = Player
+				print("Player_"..Player.Name.." ("..Player.UserId..") was detected for being "..Role.Index)
 
-				local Cham = Functions.ESP(Player.Character.HumanoidRootPart, Role.Color)
+				local Cham = ESPActivate(Player.Character.HumanoidRootPart, Role.Color)
 
 				local Animator = Player.Character:FindFirstChildWhichIsA("Humanoid"):WaitForChild("Animator")
 				Animator.AnimationPlayed:Connect(function(AnimationTrack)
-					if (AnimationTrack and AnimationTrack.Animation) == nil then
+					if Animator and AnimationTrack.Animation == nil then
 						return
 					end
 
 					if table.find(AttackAnimations, AnimationTrack.Animation.AnimationId) then
 						Cham.Color3 = Color3.fromRGB(255, 0, 255)
-
-						while true do
-							Services.RunService.Heartbeat:Wait(0.01)
-							local PlayingAnimations = Animator:GetPlayingAnimationTracks()
-							local StillAttacking = false
-							for i,v in ipairs(PlayingAnimations) do
-								if table.find(AttackAnimations, v.Animation.AnimationId) then
-									StillAttacking = true
+						spawn(function()
+							while true do
+								game:GetService("RunService").Heartbeat:Wait(0.01)
+								local PlayingAnimations = Animator:GetPlayingAnimationTracks()
+								local StillAttacking = false
+								for i, v in ipairs(PlayingAnimations) do
+									if table.find(AttackAnimations, v.Animation.AnimationId) then
+										StillAttacking = true
+									end
+								end
+								if StillAttacking == false then
+									break
 								end
 							end
-							if StillAttacking == false then
-								break
-							end
-						end
-
-						Cham.Color3 = Role.Color
+							Cham.Color3 = Role.Color
+						end)
 					end
 				end)
+
 			end
 		end)
 	end
-
 	CharacterAdded(Player.Character or Player.CharacterAdded:Wait())
 	Player.CharacterAdded:Connect(CharacterAdded)
 end
 
-function EventFunctions.GunAdded(Child)
+function GunAdded(Child)
 	if Child.Name == "GunDrop" then
-		Functions.ESP(Child, Color3.fromRGB(255, 255, 255))
+		ESPActivate(Child, Color3.fromRGB(255, 255, 255))
 	end
 end
 
-function EventFunctions.ContextActionService_C(actionName, InputState, inputObject)
-	if InputState == Enum.UserInputState.End then
-		return
+local NameESPisON = false
+
+function NameESPPlayer()
+	local Player = game.Players.LocalPlayer
+	if Player.Character then
+		local hum = Player.Character.Humanoid
+		if NameESPisON == true then
+			hum.NameOcclusion = Enum.NameOcclusion.OccludeAll
+			hum.NameDisplayDistance = 0
+			hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+		elseif NameESPisON == false then
+			hum.NameOcclusion = Enum.NameOcclusion.NoOcclusion
+			hum.NameDisplayDistance = 9999*9999
+			hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.Viewer
+		end
+		NameESPisON = not NameESPisON
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Name ESP",
+			Text = "Enabled: "..tostring(NameESPisON),
+			Duration = 5
+		})
 	end
 
-	Functions.NotifyRoles()
 end
 
-function EventFunctions.ContextActionService_V(actionName, InputState, inputObject)
-	if InputState == Enum.UserInputState.End then
-		return
-	end
+local AvatarDebounce = os.clock()
+local avataruid = nil
 
-	if Humanoid.WalkSpeed == 16.5 or Humanoid.WalkSpeed == 16 then
-		Humanoid.WalkSpeed = 17
-	else
-		Humanoid.WalkSpeed = 16.5
-	end
-
-	Services.StarterGui:SetCore("SendNotification", {
-		Title = 'Speed Change';
-		Text = tostring(Humanoid.WalkSpeed);
-		Duration = 3;
-	})
-end
-
-function EventFunctions.ContextActionService_B(actionName, InputState, inputObject)
-	if InputState == Enum.UserInputState.End then
-		return
-	end
-
-	ESPToggle = not ESPToggle
-	for i,v in ipairs(ESPInstances) do
-		v.Visible = ESPToggle
-		if v.Parent == nil then
-			table.remove(ESPInstances, i)
+function getPlayerFromName(Name)
+	for _, p in pairs(game:GetService("Players"):GetPlayers()) do
+		if p.Name:lower() == Name:lower() then
+			return p
+		else
+			return nil
 		end
 	end
 end
 
-function EventFunctions.ContextActionService_G(actionName, InputState, inputObject)
-	if InputState == Enum.UserInputState.End then
-		return
+function ExecuteChangeAvatar()
+	local Shirt
+	local Pants
+	if AvatarStage == 1 then
+		Shirt = "rbxassetid://6958438735"
+		Pants = "rbxassetid://6809842173"
+	elseif AvatarStage == 2 then
+		Shirt = "http://www.roblox.com/asset/?id=1197893602"
+		Pants = "http://www.roblox.com/asset/?id=1197893602"
 	end
-	SilentAIMEnabled = not SilentAIMEnabled
-	Services.StarterGui:SetCore("SendNotification", {
-		Title = 'Silent Aim';
-		Text = "Enabled: " .. tostring(SilentAIMEnabled);
-		Duration = 3;
-	})
-end
-
--- // Metatable \\ --
-local RawMetatable = getrawmetatable(game)
-local OldNameCall = RawMetatable.__namecall
-setreadonly(RawMetatable, false)
-
-RawMetatable.__namecall = newcclosure(function(Object, ...)
-	local NamecallMethod = getnamecallmethod()
-	local Arguments = {...}
-
-	if SilentAIMEnabled == true then
-		RaycastParameters.FilterDescendantsInstances = {LocalPlayer.Character}
-		if NamecallMethod == "FireServer" and tostring(Object) == "Throw" then
-			local Success, Error = pcall(function()
-				local Closest = Functions.GetClosestPlayer()
-				local PrimaryPart = Closest.Character.PrimaryPart
-				local Velocity = PrimaryPart.AssemblyLinearVelocity * Vector3.new(1, 0, 1)
-				local Magnitude = (PrimaryPart.Position - LocalPlayer.Character.PrimaryPart.Position).Magnitude
-				local Prediction = Velocity * 0.5 * Magnitude / 100
-				local Result = workspace.Raycast(workspace, LocalPlayer.Character.PrimaryPart.Position, (PrimaryPart.Position - (LocalPlayer.Character.PrimaryPart.Position + Prediction)).Unit * 200, RaycastParameters)
-				Arguments[2] = Result.Position
-			end)
-			if not Success then
-				warn(Error)
-			end
-		elseif NamecallMethod == "InvokeServer" and tostring(Object) == "ShootGun" and Roles.Murderer then
-			local Success, Error = pcall(function()
-				local PrimaryPart = Roles.Murderer.Character.PrimaryPart
-				local Prediction = PrimaryPart.AssemblyLinearVelocity / 40
-				if math.abs(PrimaryPart.AssemblyLinearVelocity.Y) < 10 then
-					Arguments[2] = PrimaryPart.Position + Prediction
+	if PlayerNameISon == true then
+		local FOund = false
+		for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name == AvatarPlayerName or v.DisplayName == AvatarPlayerName then
+				FOund = true
+				local char = v.Character
+				if char:FindFirstChild("Shirt") then
+					char.Shirt.ShirtTemplate = Shirt
 				else
-					return "Nullify Remote"
+					local newShirt = Instance.new("Shirt")
+					newShirt.Name = "Shirt"
+					newShirt.Parent = char
+					newShirt.ShirtTemplate = Shirt
 				end
-			end)
-			if not Success then
-				warn(Error)
-			elseif Success == "Nullify Remote" then
-				warn("Null")
-				return
+				if char:FindFirstChild("Shirt Graphic") then
+					if Shirt == "http://www.roblox.com/asset/?id=1197893602" or Shirt == "rbxassetid://6958438735" then
+						char["Shirt Graphic"].Graphic = "http://www.roblox.com/asset/?id=1197893602"
+					end
+				end
+
+				if char:FindFirstChild("Pants") then
+					char.Pants.PantsTemplate = Pants
+				else
+					local newPants = Instance.new("Pants")
+					newPants.Name = "Pants"
+					newPants.Parent = char
+					newPants.PantsTemplate = Pants
+				end
+
+				local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(v.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+				game.StarterGui:SetCore("SendNotification", {
+					Title = 'Player: '..AvatarPlayerName,
+					Text = "Was swooshed!",
+					Icon = Image,
+					Duration = 5
+				})
+			end
+		end
+		if FOund == false then
+			local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(avataruid, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+			game.StarterGui:SetCore("SendNotification", {
+				Title = 'Player: '..AvatarPlayerName,
+				Text = "Has left!",
+				Icon = Image,
+				Duration = 5
+			})
+		end
+	else
+		if ChangeEveryone == true then
+			for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+				print("Swooshing Player_"..v.Name.." ("..v.UserId..")")
+				local char = v.Character
+				if char then
+					if char:FindFirstChild("Shirt") then
+						char.Shirt.ShirtTemplate = Shirt
+					else
+						local newShirt = Instance.new("Shirt")
+						newShirt.Name = "Shirt"
+						newShirt.Parent = char
+						newShirt.ShirtTemplate = Shirt
+					end
+					
+					if char:FindFirstChild("Shirt Graphic") then
+						if Shirt == "http://www.roblox.com/asset/?id=1197893602" or Shirt == "rbxassetid://6958438735" then
+							char["Shirt Graphic"].Graphic = "http://www.roblox.com/asset/?id=1197893602"
+						end
+					end
+
+					if char:FindFirstChild("Pants") then
+						char.Pants.PantsTemplate = Pants
+					else
+						local newPants = Instance.new("Pants")
+						newPants.Name = "Pants"
+						newPants.Parent = char
+						newPants.PantsTemplate = Pants
+					end
+
+					local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(v.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+					game.StarterGui:SetCore("SendNotification", {
+						Title = 'Player: '..v.Name,
+						Text = "Was updated to Stage "..AvatarStage,
+						Icon = Image,
+						Duration = 5
+					})
+				end
+			end
+		else
+			local Girl = false
+			for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+				print("Swooshing Girl_"..v.Name.." ("..v.UserId..")")
+				local char = v.Character
+				if char then
+					local W = "http://www.roblox.com/asset/?id=1442612087"
+					local G = "http://www.roblox.com/asset/?id=2509968186"
+					local B = "http://www.roblox.com/asset/?id=542765884"
+					local CF = "https://assetdelivery.roblox.com/v1/asset/?id=4586707167"
+					local UT = char.UpperTorso
+					if UT.MeshId == W or UT.MeshId == G or UT.MeshId == B or UT.MeshId == CF then
+						Girl = true
+						if char:FindFirstChild("Shirt") then
+							char.Shirt.ShirtTemplate = Shirt
+						else
+							local newShirt = Instance.new("Shirt")
+							newShirt.Name = "Shirt"
+							newShirt.Parent = char
+							newShirt.ShirtTemplate = Shirt
+						end
+						if char:FindFirstChild("Shirt Graphic") and Shirt == "http://www.roblox.com/asset/?id=1197893602" then
+							char["Shirt Graphic"].Graphic = Shirt
+						end
+
+						if char:FindFirstChild("Pants") then
+							char.Pants.PantsTemplate = Pants
+						else
+							local newPants = Instance.new("Pants")
+							newPants.Name = "Pants"
+							newPants.Parent = char
+							newPants.PantsTemplate = Pants
+						end
+
+						local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(v.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+						game.StarterGui:SetCore("SendNotification", {
+							Title = 'Player: '..v.Name,
+							Text = "Was updated to Stage "..AvatarStage,
+							Icon = Image,
+							Duration = 5
+						})
+					end
+				end
+			end
+			if Girl == false then
+				game.StarterGui:SetCore("SendNotification", {
+					Title = 'Unexpected Error! :(',
+					Text = "We couldn't detect a girl so try again later!",
+					Duration = 5
+				})
 			end
 		end
 	end
+end
 
-	return OldNameCall(Object, unpack(Arguments))
+-- [[ Categories ]] --
+
+Main.MouseButton1Down:Connect(function()
+	Main.MainImage.ImageTransparency = 0
+	Player.PlayerImage.ImageTransparency = 1
+	Settings.SettingsImage.ImageTransparency = 1
+	MainCat.Visible = true
+	PlayersCat.Visible = false
+	SettingsCat.Visible = false
+	wait(.2)
+	for i = 0, 1, 0.05 do
+		Main.MainImage.ImageTransparency = i
+		wait()
+	end
+	Main.MainImage.ImageTransparency = 1
 end)
 
-setreadonly(RawMetatable, true)
+Player.MouseButton1Down:Connect(function()
+	Player.PlayerImage.ImageTransparency = 0
+	Main.MainImage.ImageTransparency = 1
+	Settings.SettingsImage.ImageTransparency = 1
+	MainCat.Visible = false
+	PlayersCat.Visible = true
+	SettingsCat.Visible = false
+	wait(.2)
+	for i = 0, 1, 0.05 do
+		Player.PlayerImage.ImageTransparency = i
+		wait()
+	end
+	Player.PlayerImage.ImageTransparency = 1
+end)
 
--- // Event Listeners \\ --
-for i,v in ipairs(Services.Players:GetPlayers()) do
-	EventFunctions.Initialize(v)
-end
-Services.Players.PlayerAdded:Connect(EventFunctions.Initialize)
+Settings.MouseButton1Down:Connect(function()
+	Settings.SettingsImage.ImageTransparency = 0
+	Player.PlayerImage.ImageTransparency = 1
+	Main.MainImage.ImageTransparency = 1
+	MainCat.Visible = false
+	PlayersCat.Visible = false
+	SettingsCat.Visible = true
+	wait(.2)
+	for i = 0, 1, 0.05 do
+		Settings.SettingsImage.ImageTransparency = i
+		wait()
+	end
+	Settings.SettingsImage.ImageTransparency = 1
+end)
 
-workspace.ChildAdded:Connect(EventFunctions.GunAdded)
+-- [[ Main Toggles ]] --
 
--- [ Binds ] --
-Services.ContextActionService:BindAction('SprintBind', EventFunctions.ContextActionService_V, false, Enum.KeyCode.V)
-Services.ContextActionService:BindAction('NotifyBind', EventFunctions.ContextActionService_C, false, Enum.KeyCode.C)
-Services.ContextActionService:BindAction('ESPBind', EventFunctions.ContextActionService_B, false, Enum.KeyCode.B)
-Services.ContextActionService:BindAction('AIMBind', EventFunctions.ContextActionService_G, false, Enum.KeyCode.G)
+MainCat.ESPToggle.MouseButton1Down:Connect(function()
+	if MainCat.ESPToggle.ESPToggleImage.ImageColor3 == ToggleButtonOnColor then
+		MainCat.ESPToggle.ESPToggleImage.ImageColor3 = ToggleButtonOffColor
+		ESPisON = not ESPisON
+		for i, v in ipairs(ESPInstances) do
+			v.Visible = ESPisON
+			if v.Parent == nil then
+				table.remove(ESPInstances, i)
+			end
+		end
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Player ESP",
+			Text = "Enabled: "..tostring(ESPisON),
+			Duration = 5
+		})
+	elseif MainCat.ESPToggle.ESPToggleImage.ImageColor3 == ToggleButtonOffColor then
+		MainCat.ESPToggle.ESPToggleImage.ImageColor3 = ToggleButtonOnColor
+		ESPisON = not ESPisON
+		for i, v in ipairs(ESPInstances) do
+			v.Visible = ESPisON
+			if v.Parent == nil then
+				table.remove(ESPInstances, i)
+			end
+		end
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Player ESP",
+			Text = "Enabled: "..tostring(ESPisON),
+			Duration = 5
+		})
+	end
+end)
 
--- // Actions \\ --
+MainCat.NameESPToggle.MouseButton1Down:Connect(function()
+	if MainCat.NameESPToggle.NameESPToggleImage.ImageColor3 == ToggleButtonOnColor then
+		MainCat.NameESPToggle.NameESPToggleImage.ImageColor3 = ToggleButtonOffColor
+		NameESPPlayer()
+	elseif MainCat.NameESPToggle.NameESPToggleImage.ImageColor3 == ToggleButtonOffColor then
+		MainCat.NameESPToggle.NameESPToggleImage.ImageColor3 = ToggleButtonOnColor
+		NameESPPlayer()
+	end
+end)
+
+MainCat.SilentAimToggle.MouseButton1Down:Connect(function()
+	if MainCat.SilentAimToggle.SilentAimToggleImage.ImageColor3 == ToggleButtonOnColor then
+		MainCat.SilentAimToggle.SilentAimToggleImage.ImageColor3 = ToggleButtonOffColor
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error: Silent Aim!",
+			Text = "Currently Disabled :(",
+			Duration = 5
+		})
+	elseif MainCat.SilentAimToggle.SilentAimToggleImage.ImageColor3 == ToggleButtonOffColor then
+		MainCat.SilentAimToggle.SilentAimToggleImage.ImageColor3 = ToggleButtonOnColor
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error: Silent Aim!",
+			Text = "Currently Disabled :(",
+			Duration = 5
+		})
+	end
+end)
+
+-- [[ Players Toggles ]] --
+
+PlayersCat.Everyone.MouseButton1Down:Connect(function()
+	if PlayersCat.Everyone.EveryoneImage.ImageColor3 == ToggleButtonOnColor then
+		PlayersCat.Everyone.EveryoneImage.ImageColor3 = ToggleButtonOffColor
+		ChangeEveryone = false
+	elseif PlayersCat.Everyone.EveryoneImage.ImageColor3 == ToggleButtonOffColor then
+		PlayersCat.Everyone.EveryoneImage.ImageColor3 = ToggleButtonOnColor
+		ChangeEveryone = true
+	end
+end)
+
+PlayersCat.NoClipToggle.MouseButton1Down:Connect(function()
+	if PlayersCat.NoClipToggle.NoClipToggleImage.ImageColor3 == ToggleButtonOnColor then
+		PlayersCat.NoClipToggle.NoClipToggleImage.ImageColor3 = ToggleButtonOffColor
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error: No Clip!",
+			Text = "Currently Disabled :(",
+			Duration = 5
+		})
+	elseif PlayersCat.NoClipToggle.NoClipToggleImage.ImageColor3 == ToggleButtonOffColor then
+		PlayersCat.NoClipToggle.NoClipToggleImage.ImageColor3 = ToggleButtonOnColor
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error: No Clip!",
+			Text = "Currently Disabled :(",
+			Duration = 5
+		})
+	end
+end)
+
+PlayersCat.PlayerNameTog.MouseButton1Down:Connect(function()
+	if PlayersCat.PlayerNameTog.PlayerNameTogImage.ImageColor3 == ToggleButtonOnColor then
+		PlayersCat.PlayerNameTog.PlayerNameTogImage.ImageColor3 = ToggleButtonOffColor
+		PlayerNameISon = false
+	elseif PlayersCat.PlayerNameTog.PlayerNameTogImage.ImageColor3 == ToggleButtonOffColor then
+		PlayersCat.PlayerNameTog.PlayerNameTogImage.ImageColor3 = ToggleButtonOnColor
+		PlayerNameISon = true
+	end
+end)
+
+PlayersCat.PlayerSelection.FocusLost:Connect(function()
+	local Found = false
+	if PlayersCat.PlayerSelection.Text ~= "" or nil then
+		if PlayersCat.PlayerSelection.Text:len() > 3 and PlayersCat.PlayerSelection.Text:len() < 20 then
+			for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+				if v.Name == PlayersCat.PlayerSelection.Text or v.DisplayName == PlayersCat.PlayerSelection.Text then
+					Found = true
+					AvatarPlayerName = PlayersCat.PlayerSelection.Text
+					avataruid = v.UserId
+					local Image, Ready = game:GetService("Players"):GetUserThumbnailAsync(v.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+					game.StarterGui:SetCore("SendNotification", {
+						Title = 'Selected: '..v.Name,
+						Text = "Target has been set.",
+						Icon = Image,
+						Duration = 5
+					})
+				end
+			end
+			if Found == false then
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Error!",
+					Text = "Invalid player!",
+					Duration = 5
+				})
+			end
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Error!",
+				Text = "Player name too short / long!",
+				Duration = 5
+			})
+		end
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "You cannot set a player as nothing!",
+			Duration = 5
+		})
+	end
+end)
+
+
+PlayersCat.ExecuteAvatar.MouseButton1Down:Connect(function()
+	if os.clock() - AvatarDebounce < 5 then
+		return
+	end
+	wait(2)
+	if AvatarStage == 0 then
+		AvatarStage += 1
+		ExecuteChangeAvatar()
+	elseif AvatarStage == 1 then
+		AvatarStage += 1
+		ExecuteChangeAvatar()
+	elseif AvatarStage == 2 then
+		AvatarStage = 1
+		ExecuteChangeAvatar()
+	end
+
+	AvatarDebounce = os.clock()
+end)
+
+-- [[ Player Boxes ]] --
+
+local setSpeed = 16
+local setJump = 50
+
+PlayersCat.PlayerSpeedBox.FocusLost:Connect(function()
+	local Speed = PlayersCat.PlayerSpeedBox.Text
+	local Player = game.Players.LocalPlayer
+	if Player.Character then
+		local char = Player.Character.Humanoid
+		char.WalkSpeed = tonumber(Speed)
+		setSpeed = tonumber(Speed)
+	end
+end)
+
+PlayersCat.PlayerJumpBox.FocusLost:Connect(function()
+	local Jump = PlayersCat.PlayerJumpBox.Text
+	local Player = game.Players.LocalPlayer
+	if Player.Character then
+		local char = Player.Character.Humanoid
+		char.JumpPower = tonumber(Jump)
+		setJump = tonumber(Jump)
+	end
+end)
+
+-- [[ Settings ]] --
+
+SettingsCat.RolesBox.FocusLost:Connect(function()
+	local Key = SettingsCat.RolesBox.Text
+	local success = false
+	local newKey = Enum.KeyCode[Key]
+	for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+		print(v)
+		if newKey == v then
+			success = true
+			break
+		end
+	end
+	if success == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Success!",
+			Text = "Set your keybind as "..Key,
+			Duration = 5
+		})
+		NotifyRolesBind = newKey
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "Invalid key!",
+			Duration = 5
+		})
+	end
+end)
+
+SettingsCat.NameESPBox.FocusLost:Connect(function()
+	local Key = SettingsCat.NameESPBox.Text
+	local success = false
+	local newKey = Enum.KeyCode[Key]
+	for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+		print(v)
+		if newKey == v then
+			success = true
+			break
+		end
+	end
+	if success == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Success!",
+			Text = "Set your keybind as "..Key,
+			Duration = 5
+		})
+		NameESPBind = newKey
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "Invalid key!",
+			Duration = 5
+		})
+	end
+end)
+
+SettingsCat.SilentAimBox.FocusLost:Connect(function()
+	local Key = SettingsCat.SilentAimBox.Text
+	local success = false
+	local newKey = Enum.KeyCode[Key]
+	for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+		print(v)
+		if newKey == v then
+			success = true
+			break
+		end
+	end
+	if success == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Success!",
+			Text = "Set your keybind as "..Key,
+			Duration = 5
+		})
+		SilentAimBind = newKey
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "Invalid key!",
+			Duration = 5
+		})
+	end
+end)
+
+SettingsCat.PlayerESPBox.FocusLost:Connect(function()
+	local Key = SettingsCat.PlayerESPBox.Text
+	local success = false
+	local newKey = Enum.KeyCode[Key]
+	for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+		print(v)
+		if newKey == v then
+			success = true
+			break
+		end
+	end
+	if success == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Success!",
+			Text = "Set your keybind as "..Key,
+			Duration = 5
+		})
+		PlayerESPBind = newKey
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "Invalid key!",
+			Duration = 5
+		})
+	end
+end)
+
+SettingsCat.SwitchSpeedBox.FocusLost:Connect(function()
+	local Key = SettingsCat.SwitchSpeedBox.Text
+	local success = false
+	local newKey = Enum.KeyCode[Key]
+	for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+		print(v)
+		if newKey == v then
+			success = true
+			break
+		end
+	end
+	if success == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Success!",
+			Text = "Set your keybind as "..Key,
+			Duration = 5
+		})
+		SwitchSpeedBind = newKey
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error!",
+			Text = "Invalid key!",
+			Duration = 5
+		})
+	end
+end)
+
+-- [[ User Input Listener ]] --
+
+local NameESPDebounce = os.clock()
+local PlayerESPDebounce = os.clock()
+local RolesDebounce = os.clock()
+local SAimDb = os.clock()
+
+local UserIS = game:GetService("UserInputService")
+
+local newSpeed = nil
+
+UserIS.InputBegan:Connect(function(input)
+	if UserIS:GetFocusedTextBox() then
+		return
+	end
+	
+	if input.KeyCode == NotifyRolesBind then
+		if os.clock() - RolesDebounce < 3 then
+			return
+		end 
+		NotifyRoles()
+		print("Notifying...")
+		RolesDebounce = os.clock()
+	end
+	if input.KeyCode == SwitchSpeedBind then
+		if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 16 or 16.5 then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = setSpeed
+			newSpeed = setSpeed
+		elseif game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == setSpeed then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+			newSpeed = 16
+		end
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Change Speed",
+			Text = "Your speed has been set to "..tostring(newSpeed),
+			Duration = 5
+		})
+	end
+	if input.KeyCode == SilentAimBind then
+		if os.clock() - SAimDb < 3 then
+			return
+		end 
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Error: Silent Aim!",
+			Text = "Currently Disabled :(",
+			Duration = 5
+		})
+		SAimDb = os.clock()
+	end
+	if input.KeyCode == NameESPBind then
+		if os.clock() - NameESPDebounce < 3 then
+			return
+		end 
+		NameESPPlayer()
+		NameESPDebounce = os.clock()
+	end
+	if input.KeyCode == PlayerESPBind then
+		if os.clock() - PlayerESPDebounce < 3 then
+			return
+		end
+		ESPisON = not ESPisON
+		for i, v in ipairs(ESPInstances) do
+			v.Visible = ESPisON
+			if v.Parent == nil then
+				table.remove(ESPInstances, i)
+			end
+		end
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Player ESP",
+			Text = "Enabled: "..tostring(ESPisON),
+			Duration = 5
+		})
+		PlayerESPDebounce = os.clock()
+	end
+	if input.KeyCode == Enum.KeyCode.Insert then
+		if MurderMystery.Enabled == false then
+			MurderMystery.Enabled = true
+		elseif MurderMystery.Enabled == true then
+			MurderMystery.Enabled = false
+		end
+	end
+end)
+
+game:GetService("Players").PlayerAdded:Connect(function(plr)
+	Initialize(plr)
+	print("Player_"..plr.Name.." ("..plr.UserId..") has joined")
+end)
+game:GetService("Players").PlayerRemoving:Connect(function(plr)
+	print("Player_"..plr.Name.." ("..plr.UserId..") has left")
+end)
+workspace.ChildAdded:Connect(GunAdded)
