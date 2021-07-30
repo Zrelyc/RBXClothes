@@ -300,4 +300,4 @@ end)
 
 workspace.ChildAdded:Connect(GunAdded)
 
-print("\nSemi Murder Mystery 2 Script\n  * By luna\b")
+print("\nSemi Murder Mystery 2 Script\n  * By luna\n")
