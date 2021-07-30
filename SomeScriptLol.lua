@@ -1,22 +1,22 @@
 --local Example = {
 --	PlayerName = {
 --		Color = BrickColor.new("Baby blue"),
-		
+
 --		CodeName = "Tango",
-		
+
 --		Dead = false,
-		
+
 --		Gun = "GunName",
 --		Knife = "KnifeName",
-		
+
 --		Killed = false,
-		
+
 --		Effect = "Perk",
-		
+
 --		XP = 0, -- Total XP
-		
+
 --		Role = "Role",
-		
+
 --		Coins = 16, -- Coins Earned that Round
 --		DeadTime = 0 -- Total Dead Time Seconds
 --	}
@@ -62,43 +62,41 @@ local AttackAnimations = {
 
 function NotifyRoles()
 	local GunFound = false
-	local TableFound = false
 	local Data = game.ReplicatedStorage:FindFirstChild("GetPlayerData"):InvokeServer()
 	for i, v in pairs (Data) do
 		for x, y in pairs (v) do
 			for _, player in pairs(game.Players:GetPlayers()) do
 				if player.Name == i then
-					TableFound = true
-	
-						if y == "Murderer" then
-							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-							game.StarterGui:SetCore("SendNotification", {
-								Title = y,
-								Text = i,
-								Icon = Image,
-								Duration = 5
-							})
-						end
-						if y == "Hero" then
-							GunFound = true
-							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-							game.StarterGui:SetCore("SendNotification", {
-								Title = y,
-								Text = i,
-								Icon = Image,
-								Duration = 5
-							})
-						end
-						if y == "Sheriff" then
-							GunFound = true
-							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-							game.StarterGui:SetCore("SendNotification", {
-								Title = y,
-								Text = i,
-								Icon = Image,
-								Duration = 5
-							})
-						end
+
+					if y == "Murderer" then
+						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+						game.StarterGui:SetCore("SendNotification", {
+							Title = y,
+							Text = i,
+							Icon = Image,
+							Duration = 5
+						})
+					end
+					if y == "Hero" then
+						GunFound = true
+						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+						game.StarterGui:SetCore("SendNotification", {
+							Title = y,
+							Text = i,
+							Icon = Image,
+							Duration = 5
+						})
+					end
+					if y == "Sheriff" then
+						GunFound = true
+						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+						game.StarterGui:SetCore("SendNotification", {
+							Title = y,
+							Text = i,
+							Icon = Image,
+							Duration = 5
+						})
+					end
 				end
 			end
 		end
@@ -140,6 +138,10 @@ function Initialize(Player)
 			if Role then
 				Roles[Role.Index] = Player
 				print("Player_"..Player.Name.." ("..Player.UserId..") was detected for being "..Role.Index)
+
+				if Player.Name == game.Players.LocalPlayer.Name then
+					Session[Role.Index] += 1
+				end
 
 				local Cham = ESPActivate(Player.Character.HumanoidRootPart, Role.Color)
 
@@ -194,7 +196,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.C then
 		NotifyRoles()
 	end
-	
+
 	if input.KeyCode == Enum.KeyCode.Z then
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "Session Roles:",
