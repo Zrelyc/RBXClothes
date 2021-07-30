@@ -1,11 +1,45 @@
-local ESPisON = true
+--local Example = {
+--	PlayerName = {
+--		Color = BrickColor.new("Baby blue"),
+		
+--		CodeName = "Tango",
+		
+--		Dead = false,
+		
+--		Gun = "GunName",
+--		Knife = "KnifeName",
+		
+--		Killed = false,
+		
+--		Effect = "Perk",
+		
+--		XP = 0, -- Total XP
+		
+--		Role = "Role",
+		
+--		Coins = 16, -- Coins Earned that Round
+--		DeadTime = 0 -- Total Dead Time Seconds
+--	}
+--}
+
+-- y = Result
+-- x = Player Table Children
+-- v = Main Table Children
+-- i = Player Names
+
+
+local ESPEnabled = true
+
+local Session = {
+	Murderer = 0,
+	Sheriff = 0
+}
 
 local ESPInstances = {}
 
 local Roles = {
 	Murderer = nil,
-	Sheriff = nil,
-	Closest = nil
+	Sheriff = nil
 }
 
 local WeaponNames = {
@@ -26,46 +60,58 @@ local AttackAnimations = {
 	"rbxassetid://2467577524";
 }
 
-
 function NotifyRoles()
+	local GunFound = false
+	local TableFound = false
 	local Data = game.ReplicatedStorage:FindFirstChild("GetPlayerData"):InvokeServer()
 	for i, v in pairs (Data) do
-		for _, y in pairs (v) do
+		for x, y in pairs (v) do
 			for _, player in pairs(game.Players:GetPlayers()) do
 				if player.Name == i then
-					if y == "Murderer" then
-						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-						game.StarterGui:SetCore("SendNotification", {
-							Title = y,
-							Text = i,
-							Icon = Image,
-							Duration = 5
-						})
-					end
-					if y == "Hero" then
-						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-						game.StarterGui:SetCore("SendNotification", {
-							Title = y,
-							Text = i,
-							Icon = Image,
-							Duration = 5
-						})
-					end
-					if y == "Sheriff" then
-						local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-						game.StarterGui:SetCore("SendNotification", {
-							Title = y,
-							Text = i,
-							Icon = Image,
-							Duration = 5
-						})
+					TableFound = true
+					if x == "Dead" and y == false then
+						if y == "Murderer" then
+							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+							game.StarterGui:SetCore("SendNotification", {
+								Title = y,
+								Text = i,
+								Icon = Image,
+								Duration = 5
+							})
+						end
+						if y == "Hero" then
+							GunFound = true
+							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+							game.StarterGui:SetCore("SendNotification", {
+								Title = y,
+								Text = i,
+								Icon = Image,
+								Duration = 5
+							})
+						end
+						if y == "Sheriff" then
+							GunFound = true
+							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+							game.StarterGui:SetCore("SendNotification", {
+								Title = y,
+								Text = i,
+								Icon = Image,
+								Duration = 5
+							})
+						end
 					end
 				end
 			end
 		end
 	end
+	if GunFound == false and TableFound == true then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Notice:",
+			Text = "Gun was dropped!",
+			Duration = 5
+		})
+	end
 end
-
 
 function ESPActivate(Part, Color)
 	if Part:FindFirstChildOfClass("BoxHandleAdornment") then
@@ -75,7 +121,7 @@ function ESPActivate(Part, Color)
 	local Box = Instance.new("BoxHandleAdornment")
 	Box.Size = Part.Size + Vector3.new(0.1, 0.1, 0.1)
 	Box.Name = "Mesh"
-	Box.Visible = ESPisON
+	Box.Visible = ESPEnabled
 	Box.Adornee = Part
 	Box.Color3 = Color
 	Box.AlwaysOnTop = true
@@ -95,6 +141,8 @@ function Initialize(Player)
 			if Role then
 				Roles[Role.Index] = Player
 				print("Player_"..Player.Name.." ("..Player.UserId..") was detected for being "..Role.Index)
+				
+				table.insert(Session[Role.Index], Session[Role.Index] + 1)
 
 				local Cham = ESPActivate(Player.Character.HumanoidRootPart, Role.Color)
 
@@ -106,22 +154,20 @@ function Initialize(Player)
 
 					if table.find(AttackAnimations, AnimationTrack.Animation.AnimationId) then
 						Cham.Color3 = Color3.fromRGB(255, 0, 255)
-						spawn(function()
-							while true do
-								game:GetService("RunService").Heartbeat:Wait(0.01)
-								local PlayingAnimations = Animator:GetPlayingAnimationTracks()
-								local StillAttacking = false
-								for i, v in ipairs(PlayingAnimations) do
-									if table.find(AttackAnimations, v.Animation.AnimationId) then
-										StillAttacking = true
-									end
-								end
-								if StillAttacking == false then
-									break
+						while true do
+							game:GetService("RunService").Heartbeat:Wait(0.01)
+							local PlayingAnimations = Animator:GetPlayingAnimationTracks()
+							local StillAttacking = false
+							for i, v in ipairs(PlayingAnimations) do
+								if table.find(AttackAnimations, v.Animation.AnimationId) then
+									StillAttacking = true
 								end
 							end
-							Cham.Color3 = Role.Color
-						end)
+							if StillAttacking == false then
+								break
+							end
+						end
+						Cham.Color3 = Role.Color
 					end
 				end)
 
@@ -135,6 +181,11 @@ end
 function GunAdded(Child)
 	if Child.Name == "GunDrop" then
 		ESPActivate(Child, Color3.fromRGB(255, 255, 255))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Notice:",
+			Text = "Gun was dropped!",
+			Duration = 5
+		})
 	end
 end
 
@@ -146,22 +197,31 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.C then
 		NotifyRoles()
 	end
+	
+	if input.KeyCode == Enum.KeyCode.Z then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Session Roles:",
+			Text = "Murderer: "..tostring(Session.Murderer).." | Sheriff: "..tostring(Session.Sheriff),
+			Duration = 5
+		})
+	end
 
 	if input.KeyCode == Enum.KeyCode.B then
-		ESPisON = not ESPisON
+		ESPEnabled = not ESPEnabled
+		wait()
 		for i, v in ipairs(ESPInstances) do
-			v.Visible = ESPisON
+			v.Visible = ESPEnabled
 			if v.Parent == nil then
 				table.remove(ESPInstances, i)
 			end
 		end
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "Player ESP",
-			Text = "Enabled: "..tostring(ESPisON),
+			Text = "Enabled: "..tostring(ESPEnabled),
 			Duration = 5
 		})
 	end
-	
+
 	if input.KeyCode == Enum.KeyCode.G then
 		local Girl = false
 		local Girls = 0
@@ -226,6 +286,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 	end
 end)
 
+for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+	Initialize(v)
+end
+
 game:GetService("Players").PlayerAdded:Connect(function(plr)
 	Initialize(plr)
 	print("Player_"..plr.Name.." ("..plr.UserId..") has joined")
@@ -233,4 +297,7 @@ end)
 game:GetService("Players").PlayerRemoving:Connect(function(plr)
 	print("Player_"..plr.Name.." ("..plr.UserId..") has left")
 end)
+
 workspace.ChildAdded:Connect(GunAdded)
+
+print("\nSemi Murder Mystery 2 Script\n  * By luna\b")
