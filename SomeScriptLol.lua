@@ -69,7 +69,7 @@ function NotifyRoles()
 			for _, player in pairs(game.Players:GetPlayers()) do
 				if player.Name == i then
 					TableFound = true
-					if x == "Dead" and y == false then
+	
 						if y == "Murderer" then
 							local Image, Ready = game.Players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 							game.StarterGui:SetCore("SendNotification", {
@@ -99,7 +99,6 @@ function NotifyRoles()
 								Duration = 5
 							})
 						end
-					end
 				end
 			end
 		end
@@ -141,8 +140,6 @@ function Initialize(Player)
 			if Role then
 				Roles[Role.Index] = Player
 				print("Player_"..Player.Name.." ("..Player.UserId..") was detected for being "..Role.Index)
-				
-				table.insert(Session[Role.Index], Session[Role.Index] + 1)
 
 				local Cham = ESPActivate(Player.Character.HumanoidRootPart, Role.Color)
 
